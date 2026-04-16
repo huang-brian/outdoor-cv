@@ -1,3 +1,6 @@
+# expands or abbreviates month names in a CSV file's 'date' field based on user input
+# args --ex or --ab to specify mode
+# example usage: python month_abr.py outdoorcv.csv --expand
 import csv
 import sys
 import os
@@ -50,10 +53,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Expand or abbreviate month names in a CSV 'date' field.")
     parser.add_argument("input", help="Path to the input CSV file")
     
-    # Create a mutually exclusive group so you can't try to do both at once
     group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument("--expand", action="store_true", help="Convert Jan to January")
-    group.add_argument("--abbreviate", action="store_true", help="Convert January to Jan")
+    # Added --ex and --ab as aliases
+    group.add_argument("--expand", "--ex", action="store_true", help="Convert Jan to January")
+    group.add_argument("--abbreviate", "--ab", action="store_true", help="Convert January to Jan")
 
     args = parser.parse_args()
 

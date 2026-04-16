@@ -1,3 +1,6 @@
+# generates body html text from a csv
+# https://gemini.google.com/app/80d1178c8166a432
+# example usage: python html_gen.py outdoorcv.csv bodytext.html
 import pandas as pd
 import sys
 import os
